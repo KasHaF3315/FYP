@@ -1,0 +1,7 @@
+@import './fonts.css';
+@import './tailwind.css';
+@import './theme.css';
+
+/* Prevent horizontal scroll on mobile, improve touch */
+html, body { overflow-x: hidden; }
+#root { min-height: 100vh; overflow-x: hidden; }
