@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import { Shield, ArrowLeft, User, Mail, Hash, AlertCircle } from 'lucide-react';
+import { Shield, ArrowLeft, User, Mail, Hash, AlertCircle, KeyRound } from 'lucide-react';
 import { api } from '@/lib/api';
 import boyIllustration from '@/assets/6c810de1bdbd8e10d005127c0af3c4614babe691.png';
+import { AdminPasswordResetModal } from './AdminPasswordResetModal';
 
 interface AdminLoginPageProps {
   onBack: () => void;
@@ -15,6 +16,7 @@ export function AdminLoginPage({ onBack, onLoginSuccess }: AdminLoginPageProps) 
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+  const [showForgotModal, setShowForgotModal] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -33,6 +35,7 @@ export function AdminLoginPage({ onBack, onLoginSuccess }: AdminLoginPageProps) 
   };
 
   return (
+    <>
     <div className="w-full max-w-[320px] sm:max-w-[380px] md:max-w-[420px] lg:max-w-[460px] bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl shadow-2xl relative overflow-hidden">
       <div className="absolute top-3 left-3 sm:top-4 sm:left-4 flex gap-1.5 sm:gap-2">
         <div className="w-5 h-2.5 sm:w-6 sm:h-3 bg-white/20 rounded-full"></div>
@@ -162,10 +165,28 @@ export function AdminLoginPage({ onBack, onLoginSuccess }: AdminLoginPageProps) 
                   {loading ? (mode === 'login' ? 'Signing in...' : 'Creating account...') : (mode === 'login' ? 'Sign In as Admin' : 'Create Admin Account')}
                 </button>
               </form>
+
+              {mode === 'login' && (
+                <button
+                  type="button"
+                  onClick={() => setShowForgotModal(true)}
+                  className="mt-3 flex w-full min-h-[48px] items-center justify-center gap-2 rounded-2xl bg-white py-3.5 text-sm font-bold text-[#1e3a5f] shadow-md ring-2 ring-white/80 hover:bg-white/95 active:scale-[0.99] sm:mt-4 sm:py-4 sm:text-base"
+                >
+                  <KeyRound className="h-5 w-5 shrink-0 text-[#2d5a8a]" aria-hidden />
+                  Forgot password
+                </button>
+              )}
             </div>
           </div>
         </div>
       </div>
     </div>
+
+    <AdminPasswordResetModal
+      open={showForgotModal}
+      onClose={() => setShowForgotModal(false)}
+      initialAccount={(email.trim() || username.trim())}
+    />
+    </>
   );
 }

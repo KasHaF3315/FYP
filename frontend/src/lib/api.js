@@ -92,6 +92,10 @@ export const api = {
     setAdminToken(d.token);
     return d;
   },
+  /** Unauthenticated: reset by email or username for DB-registered admins (demo; no email verification). Body: { account, newPassword } or { email | username, newPassword }. */
+  async adminResetPassword(body) {
+    return request('/api/auth/admin/reset-password', { method: 'POST', body: JSON.stringify(body) });
+  },
 
   // Progress (child token)
   async getProgress() {

@@ -211,4 +211,36 @@ router.post('/admin/register', async (req, res) => {
   }
 });
 
+// POST /api/auth/admin/reset-password — demo-style reset by email or username (DB-registered admins only; no email sent)
+router.post('/admin/reset-password', async (req, res) => {
+  try {
+    const newPassword = req.body.newPassword;
+    const raw = String(req.body.account || req.body.email || req.body.username || '').trim();
+    if (!raw || !newPassword) {
+      return res.status(400).json({ error: 'Email or username, and new password, are required' });
+    }
+    if (String(newPassword).length < 6) {
+      return res.status(400).json({ error: 'New password must be at least 6 characters' });
+    }
+    const escaped = raw.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const admin = await Admin.findOne({
+      $or: [
+        { email: raw.toLowerCase() },
+        { username: new RegExp(`^${escaped}$`, 'i') },
+      ],
+    }).select('+password');
+    if (admin) {
+      admin.password = String(newPassword);
+      await admin.save();
+    }
+    res.json({
+      ok: true,
+      message: 'If an admin account exists for that email or username, the password has been updated.',
+    });
+  } catch (e) {
+    console.error('admin/reset-password', e);
+    res.status(500).json({ error: 'Reset failed' });
+  }
+});
+
 export default router;
