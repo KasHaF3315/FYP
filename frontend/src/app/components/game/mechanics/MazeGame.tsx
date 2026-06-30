@@ -108,9 +108,9 @@ export function MazeGame({
         )}
       </div>
 
-      <div className="grid grid-cols-3 gap-2 max-w-[180px] mx-auto">
+      <div className="grid grid-cols-3 gap-2 w-full max-w-[min(100%,12rem)] sm:max-w-[14rem] mx-auto">
         <div />
-        <motion.button type="button" whileTap={{ scale: 0.9 }} onClick={() => move(0, -1)} className="py-3 rounded-lg bg-white/15 font-bold">↑</motion.button>
+        <motion.button type="button" whileTap={{ scale: 0.9 }} onClick={() => move(0, -1)} className="cq-touch-target py-3 rounded-lg bg-white/15 font-bold">↑</motion.button>
         <div />
         <motion.button type="button" whileTap={{ scale: 0.9 }} onClick={() => move(-1, 0)} className="py-3 rounded-lg bg-white/15 font-bold">←</motion.button>
         <motion.button type="button" whileTap={{ scale: 0.9 }} onClick={() => move(0, 1)} className="py-3 rounded-lg bg-white/15 font-bold">↓</motion.button>

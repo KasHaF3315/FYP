@@ -53,7 +53,7 @@ export function ModuleShell({
   onDoneNext,
 }: ModuleShellProps) {
   return (
-    <div className="min-h-screen cq-bg-app text-white p-4 sm:p-8 relative overflow-x-hidden">
+    <div className="min-h-screen cq-bg-app text-white p-3 sm:p-6 md:p-8 relative overflow-x-hidden">
       {showConfetti && <Confetti recycle={false} numberOfPieces={300} />}
       <CyberBackground />
       <BugStarfieldBackground />

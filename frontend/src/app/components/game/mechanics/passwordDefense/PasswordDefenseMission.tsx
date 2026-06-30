@@ -62,7 +62,7 @@ function CastleScene({
       <div className="absolute inset-0 bg-gradient-to-t from-purple-900/30 to-transparent" />
 
       {/* Castle body */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-48 sm:w-56">
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-36 min-[380px]:w-48 sm:w-56">
         <div className="flex justify-center gap-1 mb-0">
           {[0, 1, 2].map((i) => (
             <div key={i} className="w-8 h-10 sm:w-10 sm:h-12 bg-slate-600 border border-slate-500 rounded-t-lg relative">
@@ -351,7 +351,7 @@ export function PasswordDefenseMission({
             </p>
             <PowerMeter analysis={slots.length > 0 ? analyzePassword(slots.join('')) : null} />
 
-            <div className="bg-slate-900/70 rounded-xl p-3 mb-3 min-h-[52px] flex items-center gap-0.5 flex-wrap font-mono text-lg border border-cyan-500/20">
+            <div className="bg-slate-900/70 rounded-xl p-3 mb-3 min-h-[52px] flex items-center gap-0.5 flex-wrap font-mono text-base sm:text-lg break-all border border-cyan-500/20">
               {slots.length === 0 ? (
                 <span className="text-white/40 text-sm">Tap letters, numbers & symbols below…</span>
               ) : (
@@ -368,14 +368,14 @@ export function PasswordDefenseMission({
                 <p className="text-[10px] uppercase tracking-wider text-white/50 mb-1">
                   {bucket === 'upper' ? 'Uppercase' : bucket === 'lower' ? 'Lowercase' : bucket === 'numbers' ? 'Numbers' : 'Symbols'}
                 </p>
-                <div className="flex flex-wrap gap-1.5">
+                <div className="flex flex-wrap gap-2">
                   {tiles[bucket].map((ch, i) => (
                     <motion.button
                       key={`${bucket}-${ch}-${i}`}
                       type="button"
                       whileTap={{ scale: 0.88 }}
                       onClick={() => addChar(ch)}
-                      className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-white/15 hover:bg-cyan-500/30 font-mono font-bold text-sm border border-white/10"
+                      className="cq-touch-target w-11 h-11 sm:w-10 sm:h-10 rounded-lg bg-white/15 hover:bg-cyan-500/30 font-mono font-bold text-sm border border-white/10"
                     >
                       {ch}
                     </motion.button>
@@ -384,8 +384,8 @@ export function PasswordDefenseMission({
               </div>
             ))}
 
-            <div className="flex gap-2 mt-4">
-              <button type="button" onClick={clearPassword} className="cq-btn-secondary px-3 py-2 text-sm flex items-center gap-1">
+            <div className="flex flex-col sm:flex-row gap-2 mt-4">
+              <button type="button" onClick={clearPassword} className="cq-btn-secondary px-3 py-2.5 text-sm flex items-center justify-center gap-1 sm:w-auto w-full">
                 <Trash2 className="w-4 h-4" /> Clear
               </button>
               <button type="button" onClick={submitBuild} className="cq-btn-primary flex-1 py-2 text-sm font-bold flex items-center justify-center gap-2">

@@ -82,7 +82,7 @@ export function PasswordBuilderGame({
         <span className="font-semibold">Build Round {round + 1} of {rounds}</span>
       </div>
 
-      <div className="bg-slate-900/60 rounded-xl p-4 mb-4 min-h-[56px] flex items-center gap-1 flex-wrap font-mono text-xl">
+      <div className="bg-slate-900/60 rounded-xl p-3 sm:p-4 mb-4 min-h-[56px] flex items-center gap-1 flex-wrap font-mono text-base sm:text-xl break-all">
         {slots.length === 0 ? (
           <span className="text-white/40 text-sm">Tap tiles below to build your password...</span>
         ) : (
@@ -94,14 +94,14 @@ export function PasswordBuilderGame({
         )}
       </div>
 
-      <div className="grid grid-cols-4 sm:grid-cols-8 gap-2 mb-4">
+      <div className="cq-tile-grid mb-4">
         {tiles.map((tile, i) => (
           <motion.button
             key={`${tile}-${i}`}
             type="button"
             whileTap={{ scale: 0.9 }}
             onClick={() => addTile(tile)}
-            className="py-2 rounded-lg bg-white/15 hover:bg-white/25 font-mono font-bold text-lg"
+            className="cq-touch-target py-2 rounded-lg bg-white/15 hover:bg-white/25 font-mono font-bold text-base sm:text-lg"
           >
             {tile}
           </motion.button>

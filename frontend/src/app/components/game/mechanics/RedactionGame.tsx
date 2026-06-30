@@ -58,7 +58,7 @@ export function RedactionGame({ imageTitle, zones, onAllComplete, onCorrect, onW
 
       <div className="relative bg-gradient-to-br from-indigo-900/60 to-purple-900/60 rounded-xl p-6 min-h-[220px] border border-white/10">
         <p className="text-white font-bold mb-4">📸 My day at the park!</p>
-        <div className="grid grid-cols-2 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           {zones.map((z) => (
             <motion.button
               key={z.id}

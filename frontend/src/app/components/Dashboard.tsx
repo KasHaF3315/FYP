@@ -167,7 +167,7 @@ export default function Dashboard({ childData, onSignOut, onGoBack, showBackButt
       <CyberBackground />
       <BugStarfieldBackground />
       {/* Main Content */}
-      <div className="relative z-10 flex-1 overflow-y-auto overflow-x-hidden pb-20 sm:pb-24">
+      <div className="relative z-10 flex-1 overflow-y-auto overflow-x-hidden pb-[calc(5rem+env(safe-area-inset-bottom,0px))] sm:pb-24">
         <div className="max-w-4xl mx-auto p-4 sm:p-6 md:p-8 lg:p-10">
           {/* Header */}
           <div className="flex items-start justify-between mb-6 sm:mb-8">
@@ -292,7 +292,7 @@ export default function Dashboard({ childData, onSignOut, onGoBack, showBackButt
           )}
 
           {/* Game Cards Grid */}
-          <div className="grid grid-cols-2 gap-3 sm:gap-4 md:gap-6 lg:gap-8 mb-6 sm:mb-8">
+          <div className="grid grid-cols-1 min-[380px]:grid-cols-2 gap-3 sm:gap-4 md:gap-6 lg:gap-8 mb-6 sm:mb-8">
             {sortedModuleCards.map((card) => {
               const enabled = isModuleEnabled(card.key) && !settings.maintenanceMode;
               return (
@@ -323,7 +323,7 @@ export default function Dashboard({ childData, onSignOut, onGoBack, showBackButt
 
       {/* Bottom Navigation */}
       <div className="fixed bottom-0 left-0 right-0 z-20 cq-nav-bar">
-        <div className="max-w-4xl mx-auto flex items-center justify-around py-3 sm:py-4 px-4">
+        <div className="max-w-4xl mx-auto flex items-center justify-around py-2 sm:py-4 px-2 sm:px-4">
           <motion.button
             className="flex flex-col items-center gap-1 sm:gap-2 cq-nav-item-active min-w-[64px] sm:min-w-[80px] min-h-[56px] justify-center"
             whileTap={{ scale: 0.92 }}

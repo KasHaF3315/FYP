@@ -81,14 +81,14 @@ export function ChatSimulatorGame({
 
   return (
     <div className="cq-game-panel p-5 sm:p-6">
-      <div className="flex items-center gap-2 mb-4 text-cyan-200">
-        <Icon className="w-5 h-5" />
-        <span className="font-semibold">
+      <div className="flex items-center gap-2 mb-4 text-cyan-200 flex-wrap">
+        <Icon className="w-5 h-5 shrink-0" />
+        <span className="font-semibold text-sm sm:text-base">
           {mode === 'phone' ? 'Incoming Call' : 'Live Chat'} — Scene {nodeIndex + 1}/{nodes.length}
         </span>
       </div>
 
-      <div className="cq-chat-box bg-slate-900/50 rounded-xl p-4 min-h-[200px] max-h-[320px] overflow-y-auto space-y-3 mb-4">
+      <div className="cq-chat-box bg-slate-900/50 rounded-xl p-3 sm:p-4 min-h-[160px] max-h-[40vh] sm:max-h-[320px] overflow-y-auto space-y-3 mb-4">
         <AnimatePresence>
           {history.map((msg) => (
             <motion.div

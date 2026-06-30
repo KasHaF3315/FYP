@@ -387,8 +387,8 @@ export function SimpleParentDashboard({ parentData, onSignOut }: SimpleParentDas
                 </div>
                 <div className="space-y-0">
                   {childData && childProgress.lastPlayedAt && (
-                    <div className="flex gap-4 py-4 border-b border-gray-100 first:pt-0">
-                      <div className="w-24 shrink-0 text-right pt-0.5">
+                    <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 py-4 border-b border-gray-100 first:pt-0">
+                      <div className="sm:w-24 shrink-0 sm:text-right pt-0.5">
                         <span className="text-[11px] font-medium text-gray-400 uppercase tracking-wide">Latest</span>
                       </div>
                       <div className="flex flex-1 gap-3 min-w-0">
@@ -408,8 +408,8 @@ export function SimpleParentDashboard({ parentData, onSignOut }: SimpleParentDas
                     </div>
                   )}
                   {childData && (
-                    <div className="flex gap-4 py-4 border-b border-gray-100 first:pt-0">
-                      <div className="w-24 shrink-0 text-right pt-0.5">
+                    <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 py-4 border-b border-gray-100 first:pt-0">
+                      <div className="sm:w-24 shrink-0 sm:text-right pt-0.5">
                         <span className="text-[11px] font-medium text-gray-400 uppercase tracking-wide">Recent</span>
                       </div>
                       <div className="flex flex-1 gap-3 min-w-0">
@@ -423,8 +423,8 @@ export function SimpleParentDashboard({ parentData, onSignOut }: SimpleParentDas
                       </div>
                     </div>
                   )}
-                  <div className="flex gap-4 py-4 border-b border-gray-100">
-                    <div className="w-24 shrink-0 text-right pt-0.5">
+                  <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 py-4 border-b border-gray-100">
+                    <div className="sm:w-24 shrink-0 sm:text-right pt-0.5">
                       <span className="text-[11px] font-medium text-gray-400 uppercase tracking-wide">Account</span>
                     </div>
                     <div className="flex flex-1 gap-3 min-w-0">
@@ -437,8 +437,8 @@ export function SimpleParentDashboard({ parentData, onSignOut }: SimpleParentDas
                       </div>
                     </div>
                   </div>
-                  <div className="flex gap-4 py-4 last:pb-0">
-                    <div className="w-24 shrink-0 text-right pt-0.5">
+                  <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 py-4 last:pb-0">
+                    <div className="sm:w-24 shrink-0 sm:text-right pt-0.5">
                       <span className="text-[11px] font-medium text-gray-400 uppercase tracking-wide">Curriculum</span>
                     </div>
                     <div className="flex flex-1 gap-3 min-w-0">

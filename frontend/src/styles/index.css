@@ -2,6 +2,7 @@
 @import './tailwind.css';
 @import './theme.css';
 @import './cyberquest-design-system.css';
+@import './responsive.css';
 
 /* Prevent horizontal scroll on mobile, improve touch */
 html,

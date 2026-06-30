@@ -93,6 +93,8 @@
   border: 1px solid rgba(34, 211, 238, 0.2);
   border-radius: var(--cq-radius-xl);
   box-shadow: var(--cq-shadow-card), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 /* Typography */

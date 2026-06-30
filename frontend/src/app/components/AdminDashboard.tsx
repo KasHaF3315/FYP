@@ -745,7 +745,7 @@ export function AdminDashboard({ onSignOut }: AdminDashboardProps) {
                       </button>
                     </div>
 
-                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mt-6">
                       {[
                         { label: 'Parents', value: parents.length },
                         { label: 'Learners', value: children.length },
@@ -998,7 +998,7 @@ export function AdminDashboard({ onSignOut }: AdminDashboardProps) {
                     </div>
                   )}
 
-                  <div className="grid grid-cols-2 gap-3">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <div className="rounded-xl border border-gray-200 bg-gray-50 p-3">
                       <p className="text-[10px] font-semibold uppercase tracking-wider text-gray-500">Total score</p>
                       <p className="text-xl font-bold text-gray-900 tabular-nums">{childSummary.totalScore}</p>

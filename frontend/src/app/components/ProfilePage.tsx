@@ -114,7 +114,7 @@ export function ProfilePage({ childData, onBack }: ProfilePageProps) {
             initial={{ opacity: 0, y: -50 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -50 }}
-            className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 cq-feedback-success text-white px-6 py-3 rounded-xl shadow-lg flex items-center gap-2 border"
+            className="fixed cq-safe-top left-1/2 transform -translate-x-1/2 z-50 cq-feedback-success text-white px-4 sm:px-6 py-3 rounded-xl shadow-lg flex items-center gap-2 border max-w-[calc(100vw-2rem)]"
           >
             <CheckCircle className="w-5 h-5" />
             <span className="font-semibold">Changes saved successfully!</span>
@@ -124,7 +124,7 @@ export function ProfilePage({ childData, onBack }: ProfilePageProps) {
 
       <div className="relative z-10 flex flex-col flex-1 min-h-0">
       {/* Header */}
-      <div className="cq-nav-bar px-4 py-4 sm:py-6">
+      <div className="cq-nav-bar cq-nav-bar--top px-4 py-4 sm:py-6">
         <div className="max-w-4xl mx-auto flex items-center gap-4">
           <button
             onClick={onBack}
@@ -190,10 +190,10 @@ export function ProfilePage({ childData, onBack }: ProfilePageProps) {
           </div>
 
           {/* Tabs */}
-          <div className="flex gap-2 sm:gap-4 mb-6 overflow-x-auto">
+          <div className="cq-tab-row mb-6">
             <button
               onClick={() => setActiveTab('info')}
-              className={`flex items-center gap-2 px-4 sm:px-6 py-3 rounded-xl font-semibold transition-all whitespace-nowrap ${
+              className={`flex items-center justify-center gap-2 px-3 sm:px-6 py-3 rounded-xl font-semibold transition-all ${
                 activeTab === 'info'
                   ? 'bg-gradient-to-r from-blue-500 to-blue-600 text-white shadow-lg'
                   : 'bg-white/10 text-white/70 hover:bg-white/20'
@@ -204,7 +204,7 @@ export function ProfilePage({ childData, onBack }: ProfilePageProps) {
             </button>
             <button
               onClick={() => setActiveTab('parent')}
-              className={`flex items-center gap-2 px-4 sm:px-6 py-3 rounded-xl font-semibold transition-all whitespace-nowrap ${
+              className={`flex items-center justify-center gap-2 px-3 sm:px-6 py-3 rounded-xl font-semibold transition-all ${
                 activeTab === 'parent'
                   ? 'bg-gradient-to-r from-blue-500 to-blue-600 text-white shadow-lg'
                   : 'bg-white/10 text-white/70 hover:bg-white/20'
@@ -215,7 +215,7 @@ export function ProfilePage({ childData, onBack }: ProfilePageProps) {
             </button>
             <button
               onClick={() => setActiveTab('settings')}
-              className={`flex items-center gap-2 px-4 sm:px-6 py-3 rounded-xl font-semibold transition-all whitespace-nowrap ${
+              className={`flex items-center justify-center gap-2 px-3 sm:px-6 py-3 rounded-xl font-semibold transition-all ${
                 activeTab === 'settings'
                   ? 'bg-gradient-to-r from-green-500 to-green-600 text-white shadow-lg'
                   : 'bg-white/10 text-white/70 hover:bg-white/20'

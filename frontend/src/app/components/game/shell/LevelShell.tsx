@@ -28,7 +28,7 @@ export function LevelShell({
 }: LevelShellProps) {
   return (
     <motion.div
-      className="max-w-3xl mx-auto w-full px-4 sm:px-6 pb-8 relative z-10"
+      className="max-w-3xl mx-auto w-full px-3 sm:px-6 pb-8 relative z-10"
       {...fadeInUp}
     >
       <div className="flex items-center justify-between gap-3 mb-4">

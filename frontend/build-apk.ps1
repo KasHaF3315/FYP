@@ -43,8 +43,7 @@ if (Test-Path $apk) {
   Write-Host $apk
   Write-Host ""
   Write-Host "Install: copy APK to phone, or run: adb install `"$apk`"" -ForegroundColor Yellow
-  Write-Host "Backend must be running: cd backend && npm run dev" -ForegroundColor Yellow
-  Write-Host "Phone must be on same Wi-Fi as PC (API: http://192.168.100.20:5000)" -ForegroundColor Yellow
+  Write-Host "API: https://cyberquest-api-jd5l.onrender.com (no local backend needed)" -ForegroundColor Yellow
 } else {
   Write-Host "Build finished but APK not found." -ForegroundColor Red
   exit 1

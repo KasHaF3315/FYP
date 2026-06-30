@@ -70,6 +70,13 @@ export function RewardsPage({ onBack }: RewardsPageProps) {
     },
   };
 
+  const moduleShortLabel: Record<ModuleId, string> = {
+    cyberbully: 'Cyber',
+    scam: 'Scams',
+    privacy: 'Privacy',
+    password: 'Password',
+  };
+
   const active = moduleConfig[activeModule];
 
   const totalUnlocked = Object.values(moduleConfig).reduce((sum, m) => {
@@ -102,7 +109,7 @@ export function RewardsPage({ onBack }: RewardsPageProps) {
             </motion.div>
 
             <div className="cq-panel cq-panel-glow rounded-2xl p-4 sm:p-6 mb-6">
-              <div className="grid grid-cols-3 gap-3 text-center mb-4">
+              <div className="grid grid-cols-1 min-[360px]:grid-cols-3 gap-3 text-center mb-4">
                 <div>
                   <p className="text-white/60 text-xs sm:text-sm">Unlocked</p>
                   <p className="text-white text-2xl font-bold cq-text-gradient-gold">{totalUnlocked}</p>
@@ -119,7 +126,7 @@ export function RewardsPage({ onBack }: RewardsPageProps) {
               <AnimatedProgressBar value={progressPercent} showPercent={false} size="lg" />
             </div>
 
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-6">
               {(Object.keys(moduleConfig) as ModuleId[]).map((key) => {
                 const module = moduleConfig[key];
                 const isActive = activeModule === key;
@@ -128,11 +135,12 @@ export function RewardsPage({ onBack }: RewardsPageProps) {
                     key={key}
                     onClick={() => setActiveModule(key)}
                     whileTap={{ scale: 0.97 }}
-                    className={`p-3 sm:p-4 rounded-xl text-white font-semibold transition-all ${
+                    className={`p-3 sm:p-4 rounded-xl text-white font-semibold transition-all text-sm sm:text-base min-h-11 ${
                       isActive ? `bg-gradient-to-r ${module.color} shadow-lg ring-2 ring-white/30` : 'cq-panel hover:bg-white/15'
                     }`}
                   >
-                    {module.label}
+                    <span className="sm:hidden">{moduleShortLabel[key]}</span>
+                    <span className="hidden sm:inline">{module.label}</span>
                   </motion.button>
                 );
               })}
